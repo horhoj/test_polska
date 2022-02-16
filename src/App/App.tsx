@@ -1,11 +1,20 @@
 import React from 'react';
-import { Router } from '../router';
-import styles from './App.module.scss';
+import { NavLink } from 'react-router-dom';
+import { getRoutePath, Router } from '../router';
+import { Spinner } from './Spinner';
 
 export const App: React.FC = () => {
   return (
-    <div className={styles.wrap}>
-      <Router />
-    </div>
+    <>
+      <Spinner />
+      <div className="container">
+        <nav className="navbar d-flex">
+          <NavLink to={getRoutePath('CategoryListForm')}>Category List</NavLink>
+        </nav>
+        <main>
+          <Router />
+        </main>
+      </div>
+    </>
   );
 };

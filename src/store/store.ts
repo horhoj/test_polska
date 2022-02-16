@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { appReducer } from './app';
+import { categoryListSlice } from '../features/categoryList/categorySlice';
+import { appSlice } from './app';
 
 export const store = configureStore({
   devTools: true,
   reducer: {
-    app: appReducer,
+    app: appSlice.reducer,
+    categoryList: categoryListSlice.reducer,
   },
 });

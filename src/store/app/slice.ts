@@ -5,7 +5,7 @@ const initialState: AppState = {
   redirectUrl: null,
 };
 
-export const appSlice = createSlice({
+export const { actions, reducer } = createSlice({
   name: 'app',
   initialState,
   reducers: {

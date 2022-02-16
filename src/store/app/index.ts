@@ -1,6 +1,4 @@
 import * as selectors from './selectors';
-import { appSlice } from './slice';
+import { actions, reducer } from './slice';
 
-export const appSelectors = selectors;
-
-export const { actions: appActions, reducer: appReducer } = appSlice;
+export const appSlice = { actions, reducer, selectors };

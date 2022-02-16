@@ -1,8 +1,7 @@
 import { FC } from 'react';
-import { generatePath } from 'react-router-dom';
-import { Home } from '../pages/Home';
+import { HomePage } from '../pages/HomePage';
 import { Page404 } from '../pages/Page404';
-import { TestPage } from '../pages/TestPage';
+import { CategoryListPage } from '../pages/CategoryListPage';
 
 interface RouteItem {
   name: Routes;
@@ -10,19 +9,19 @@ interface RouteItem {
   component: FC;
 }
 
-export type Routes = 'Home' | 'TestPage' | 'Page404';
+export type Routes = 'Home' | 'CategoryListForm' | 'Page404';
 
 export const routeList: RouteItem[] = [
   {
     name: 'Home',
     path: '/',
-    component: Home,
+    component: HomePage,
   },
 
   {
-    name: 'TestPage',
-    path: '/test-page/:id',
-    component: TestPage,
+    name: 'CategoryListForm',
+    path: '/category-list',
+    component: CategoryListPage,
   },
 
   {
@@ -31,20 +30,3 @@ export const routeList: RouteItem[] = [
     component: Page404,
   },
 ];
-
-export const getRoutePath = (
-  routeName: Routes,
-  id: string | null = null,
-): string => {
-  const index = routeList.findIndex(
-    (routeItems) => routeItems.name === routeName,
-  );
-
-  const path = routeList[index].path;
-
-  if (!id) {
-    return path;
-  }
-
-  return generatePath(path, { id });
-};

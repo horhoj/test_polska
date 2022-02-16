@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useAppSelector } from '../store/hooks';
-import { appSelectors } from '../store/app';
+import { appSlice } from '../store/app';
 
 export const RedirectExecutor: React.FC = () => {
-  const redirectUrl = useAppSelector(appSelectors.getRedirectUrl);
+  const redirectUrl = useAppSelector(appSlice.selectors.getRedirectUrl);
   const navigate = useNavigate();
 
   useEffect(() => {
