@@ -20,7 +20,12 @@ const initialState: InitialState = {
 export const { actions, reducer } = createSlice({
   name: SLICE_NAME,
   initialState,
-  reducers: {},
+  reducers: {
+    clear: (state) => {
+      state.error = null;
+      state.categoryList = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(thunks.getCategoryListRequest.pending, (state) => {

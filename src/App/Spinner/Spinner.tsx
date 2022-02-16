@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { useAppSelector } from '../../store/hooks';
 
 import { categoryListSlice } from '../../features/categoryList/categorySlice';
+import { categoryItemSlice } from '../../features/categoryItem/categoryItemSlice';
 import styles from './Spinner.module.scss';
 
 export const Spinner: FC = () => {
@@ -9,8 +10,11 @@ export const Spinner: FC = () => {
   const categoryListIsLoading = useAppSelector(
     categoryListSlice.selectors.getIsLoading,
   );
+  const categoryItemIsLoading = useAppSelector(
+    categoryItemSlice.selectors.getIsLoading,
+  );
 
-  const isLoading = categoryListIsLoading;
+  const isLoading = categoryListIsLoading || categoryItemIsLoading;
 
   return isLoading ? <div className={styles.Spinner} /> : null;
 };

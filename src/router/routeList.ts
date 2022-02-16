@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { HomePage } from '../pages/HomePage';
 import { Page404 } from '../pages/Page404';
 import { CategoryListPage } from '../pages/CategoryListPage';
+import { AddCategoryItemPage } from '../pages/AddCategoryItemPage';
+import { EditCategoryItemPage } from '../pages/EditCategoryItemPage';
 
 interface RouteItem {
   name: Routes;
@@ -9,7 +11,12 @@ interface RouteItem {
   component: FC;
 }
 
-export type Routes = 'Home' | 'CategoryListForm' | 'Page404';
+export type Routes =
+  | 'Home'
+  | 'CategoryListPage'
+  | 'AddCategoryItemPage'
+  | 'EditCategoryItemPage'
+  | 'Page404';
 
 export const routeList: RouteItem[] = [
   {
@@ -19,9 +26,21 @@ export const routeList: RouteItem[] = [
   },
 
   {
-    name: 'CategoryListForm',
+    name: 'CategoryListPage',
     path: '/category-list',
     component: CategoryListPage,
+  },
+
+  {
+    name: 'AddCategoryItemPage',
+    path: '/new-category-item',
+    component: AddCategoryItemPage,
+  },
+
+  {
+    name: 'EditCategoryItemPage',
+    path: '/edit-category-page/:id',
+    component: EditCategoryItemPage,
   },
 
   {
