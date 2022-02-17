@@ -10,7 +10,8 @@ import { getRoutePath } from '../../../router';
 import { appSlice } from '../../../store/app';
 import styles from './CategoryListForm.module.scss';
 
-const ERROR_TITLE = 'Не удалось получить список категорий!';
+const ERROR_TITLE =
+  'Не удалось выполнить операцию для списка категорий категорий!';
 const ACTION_COLUMN_TITLE = 'Actions';
 
 const DATA_GRID_COLUMN_LIST: DataGridColumn<keyof CategoryListItem>[] = [

@@ -12,6 +12,9 @@ export const getCategoryListRequest = createAsyncThunk(
       ...getDefaultRequestConfig(),
       url: '/product_categories',
       method: 'get',
+      params: {
+        size: 10000,
+      },
     };
 
     const response = await axios.request<{ data: CategoryListItem[] }>(
@@ -23,7 +26,7 @@ export const getCategoryListRequest = createAsyncThunk(
 );
 
 export const deleteCategoryListItemRequest = createAsyncThunk(
-  `${SLICE_NAME}/getTodoListRequest`,
+  `${SLICE_NAME}/deleteCategoryListItemRequest`,
   async (id: number, store) => {
     const requestConfig: AxiosRequestConfig = {
       ...getDefaultRequestConfig(),

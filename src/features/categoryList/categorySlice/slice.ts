@@ -41,5 +41,21 @@ export const { actions, reducer } = createSlice({
         state.isLoading = false;
         state.error = getErrorData(error);
       });
+
+    builder
+      .addCase(thunks.deleteCategoryListItemRequest.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(thunks.deleteCategoryListItemRequest.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(
+        thunks.deleteCategoryListItemRequest.rejected,
+        (state, { error }) => {
+          state.isLoading = false;
+          state.error = getErrorData(error);
+        },
+      );
   },
 });
