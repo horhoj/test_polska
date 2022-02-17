@@ -44,7 +44,7 @@ export const CategoryListForm: FC = () => {
   const handleDelete = (id: number) => {
     const msg = `delete category with ID="${id}"`;
     if (confirm(msg)) {
-      console.log('delete', id);
+      dispatch(categoryListSlice.thunks.deleteCategoryListItemRequest(id));
     }
   };
 
@@ -59,7 +59,7 @@ export const CategoryListForm: FC = () => {
   };
 
   return (
-    <div>
+    <div className="d-flex flex-column gap-2">
       <div className={`d-flex gap-2 ${styles.buttons}`}>
         <button
           type={'button'}
