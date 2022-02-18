@@ -8,9 +8,22 @@ export const App: React.FC = () => {
     <>
       <Spinner />
       <div className="container">
-        <nav className="navbar">
-          <NavLink to={getRoutePath('CategoryListPage')}>Category List</NavLink>
-        </nav>
+        <header>
+          <nav className="navbar">
+            <ul className="navbar navbar-nav flex-row gap-2">
+              <li>
+                <NavLink to={getRoutePath('CategoryListPage')}>
+                  Category List
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={getRoutePath('ProductListPage')}>
+                  Product List
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        </header>
         <main>
           <Router />
         </main>

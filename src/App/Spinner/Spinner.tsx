@@ -3,6 +3,7 @@ import { useAppSelector } from '../../store/hooks';
 
 import { categoryListSlice } from '../../features/categoryList/categorySlice';
 import { categoryItemSlice } from '../../features/categoryItem/categoryItemSlice';
+import { productListSlice } from '../../features/productList/productListSlice';
 import styles from './Spinner.module.scss';
 
 export const Spinner: FC = () => {
@@ -14,7 +15,12 @@ export const Spinner: FC = () => {
     categoryItemSlice.selectors.getIsLoading,
   );
 
-  const isLoading = categoryListIsLoading || categoryItemIsLoading;
+  const productListIsLoading = useAppSelector(
+    productListSlice.selectors.getIsLoading,
+  );
+
+  const isLoading =
+    categoryListIsLoading || categoryItemIsLoading || productListIsLoading;
 
   return isLoading ? <div className={styles.Spinner} /> : null;
 };
