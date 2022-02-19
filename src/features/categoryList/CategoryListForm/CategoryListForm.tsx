@@ -60,6 +60,7 @@ export const CategoryListForm: FC = () => {
 
   return (
     <div className="d-flex flex-column gap-2">
+      <h3>Category list</h3>
       <div className={`d-flex gap-2 ${styles.buttons}`}>
         <button
           type={'button'}

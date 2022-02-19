@@ -20,7 +20,13 @@ const initialState: InitialState = {
 export const { actions, reducer } = createSlice({
   name: SLICE_NAME,
   initialState,
-  reducers: {},
+  reducers: {
+    clear: (state) => {
+      state.productList = null;
+      state.error = null;
+    },
+  },
+
   extraReducers: (builder) => {
     builder
       .addCase(thunks.getProductListRequest.pending, (state) => {

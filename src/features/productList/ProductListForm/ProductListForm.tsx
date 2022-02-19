@@ -7,6 +7,8 @@ import { ProductListItemPreview } from '../types';
 import styles from '../../categoryList/CategoryListForm/CategoryListForm.module.scss';
 import { RequestErrorMSG } from '../../../components/RequestErrorMSG';
 import { ActionList } from '../../../components/ActionList';
+import { getRoutePath } from '../../../router';
+import { appSlice } from '../../../store/app';
 import { getProductListPreview } from './helpers';
 
 const ACTIONS_COLUMN_LIST_TITLE = 'Actions';
@@ -27,31 +29,37 @@ export const ProductListForm: FC = () => {
     productListSlice.selectors.getRequestError,
   );
 
+  useEffect(() => {
+    updateProductList();
+    return () => {
+      dispatch(productListSlice.actions.clear());
+    };
+  }, []);
+
   const updateProductList = () => {
     dispatch(productListSlice.thunks.getProductListRequest());
   };
 
   const handleAdd = () => {
-    console.log('add product');
+    const path = getRoutePath('AddProductItemPage');
+    dispatch(appSlice.actions.redirect(path));
   };
 
   const handleEdit = (id: number) => {
-    console.log('edit', id);
+    const path = getRoutePath('EditProductItemPage', id.toString());
+    dispatch(appSlice.actions.redirect(path));
   };
 
   const handleDelete = (id: number) => {
     const msg = `delete category with ID="${id}"`;
     if (confirm(msg)) {
-      console.log('delete', id);
+      dispatch(productListSlice.thunks.deleteProductListItemRequest(id));
     }
   };
 
-  useEffect(() => {
-    updateProductList();
-  }, []);
-
   return (
     <div className="d-flex flex-column gap-2">
+      <h3>Product list</h3>
       <div className={`d-flex gap-2 ${styles.buttons}`}>
         <button
           type={'button'}

@@ -5,6 +5,8 @@ import { CategoryListPage } from '../pages/CategoryListPage';
 import { AddCategoryItemPage } from '../pages/AddCategoryItemPage';
 import { EditCategoryItemPage } from '../pages/EditCategoryItemPage';
 import { ProductListPage } from '../pages/ProductListPage';
+import { AddProductItemPage } from '../pages/AddProductItemPage';
+import { EditProductItemPage } from '../pages/EditProductItemPage';
 
 interface RouteItem {
   name: Routes;
@@ -18,6 +20,8 @@ export type Routes =
   | 'AddCategoryItemPage'
   | 'EditCategoryItemPage'
   | 'ProductListPage'
+  | 'AddProductItemPage'
+  | 'EditProductItemPage'
   | 'Page404';
 
 export const routeList: RouteItem[] = [
@@ -49,6 +53,18 @@ export const routeList: RouteItem[] = [
     name: 'ProductListPage',
     path: '/product-list',
     component: ProductListPage,
+  },
+
+  {
+    name: 'AddProductItemPage',
+    path: '/add-product-page',
+    component: AddProductItemPage,
+  },
+
+  {
+    name: 'EditProductItemPage',
+    path: '/edit-product-page/:id',
+    component: EditProductItemPage,
   },
 
   {

@@ -9,7 +9,7 @@ export const App: React.FC = () => {
       <Spinner />
       <div className="container">
         <header>
-          <nav className="navbar">
+          <nav className="navbar justify-content-center">
             <ul className="navbar navbar-nav flex-row gap-2">
               <li>
                 <NavLink to={getRoutePath('CategoryListPage')}>
