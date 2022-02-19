@@ -4,6 +4,7 @@ import { useAppSelector } from '../../store/hooks';
 import { categoryListSlice } from '../../features/categoryList/categorySlice';
 import { categoryItemSlice } from '../../features/categoryItem/categoryItemSlice';
 import { productListSlice } from '../../features/productList/productListSlice';
+import { productItemSlice } from '../../features/productItem/ProductItemSlice';
 import styles from './Spinner.module.scss';
 
 export const Spinner: FC = () => {
@@ -19,8 +20,15 @@ export const Spinner: FC = () => {
     productListSlice.selectors.getIsLoading,
   );
 
+  const productItemIsLoading = useAppSelector(
+    productItemSlice.selectors.getIsLoading,
+  );
+
   const isLoading =
-    categoryListIsLoading || categoryItemIsLoading || productListIsLoading;
+    categoryListIsLoading ||
+    categoryItemIsLoading ||
+    productListIsLoading ||
+    productItemIsLoading;
 
   return isLoading ? <div className={styles.Spinner} /> : null;
 };

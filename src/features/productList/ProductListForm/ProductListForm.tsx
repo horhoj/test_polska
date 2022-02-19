@@ -19,7 +19,6 @@ const COLUMN_LIST: DataGridColumn<keyof ProductListItemPreview>[] = [
   { id: 2, name: 'name', title: 'name' },
   { id: 3, name: 'categoryName', title: 'categoryName' },
   { id: 4, name: 'categoryId', title: 'categoryId' },
-  { id: 5, name: 'categoryId2', title: 'categoryId2' },
 ];
 
 export const ProductListForm: FC = () => {
